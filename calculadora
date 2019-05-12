@@ -1,0 +1,273 @@
+<html>
+
+    <head>
+
+        <script>               
+
+            function f(){
+
+                var a = parseFloat(document.getElementById("a").value);
+
+                var b = parseFloat(document.getElementById("b").value);
+
+                var c = parseFloat(document.getElementById("c").value);
+
+                var result = document.getElementById("resultEquacao");
+
+                var result2 = document.getElementById("resultEquacao2");
+
+                var r1;
+
+                var r2; 
+
+                var r3;
+
+                
+
+
+
+                var delta = (Math.pow(b,2)-4*a*c);
+
+                if (delta > 0 ){
+
+                    r1= (-b + Math.pow(delta,0.5))/(2*a);
+
+                    r2= (-b - Math.pow(delta,0.5))/(2*a);
+
+                    result.textContent = r1 + " e";
+
+                    result2.textContent = r2;
+
+                }
+
+                else if (delta < 0){
+
+                    result.textContent = "Não possui raiz real";
+
+                    result2.textContent = " ";
+
+                }
+
+                else if(delta == 0){
+
+                    r3= (-b/2*a);
+
+                    result.textContent = r3;
+
+                }
+
+            } 
+
+            function g(){
+
+                var e = parseInt(document.getElementById("e").value);
+
+                var d = parseInt(document.getElementById("d").value);
+
+                var resulta = document.getElementById("resulta");
+
+                var mdc = document.getElementById("mdc");
+
+                var i;
+
+                var mdc1 = 1;
+
+                var resulta1 = 0;
+
+                clean(comuns);
+
+                if(d>e){
+
+                    for (i=1; i <= d; i++) {
+
+                        if( d%i == 0 && e%i == 0){
+
+                            resulta1++;
+
+                            comuns.textContent += i;
+
+                            comuns.textContent += " "
+
+                            if(i>mdc1){
+
+                                mdc1 = i;
+
+                            }
+
+                        }
+
+                        mdc.textContent = mdc1;
+
+                        resulta.textContent = resulta1 ;
+
+                    } 
+
+                } else {
+
+                    for (i=1; i <= e; i++) {
+
+                        if( d%i == 0 && e%i == 0){
+
+                            resulta1++;
+
+                            comuns.textContent += i;
+
+                            comuns.textContent += " "
+
+                            if(i>mdc1){
+
+                                mdc1 = i;
+
+
+
+                            }
+
+                        }
+
+                        mdc.textContent = mdc1;
+
+                        resulta.textContent = resulta1 ;
+
+                    }
+
+                }
+
+                function clean(comuns){
+
+                    comuns.textContent = "Divisores comuns:"
+
+                }
+
+            }
+
+            function ha(){
+
+                button
+
+            }
+
+        </script>
+
+        <style> 
+
+
+
+            body {
+
+                color: #fff;
+
+            }
+
+            .caixa {
+
+             text-align: center;
+
+            }
+
+            
+
+            body {
+
+                background-size: cover;
+
+            }
+
+           
+
+        h1 {
+
+            
+
+            }
+
+
+
+        </style>
+
+        <title>
+
+            Equação e Divisores     
+
+        </title>
+
+    </head>
+
+     <body background="aurora.gif">
+
+    <h1 style= "background: rgba(120, 176, 217, 0.10)"; align= "center"> <i><u>Calculadora de equações do 2º Grau</u></i> </h1>
+
+        <h3 style="color:white;"; align= "center"> Escolha o primeiro valor: </h3>
+
+        <div class="caixa">
+
+            <input type="number" id="a" placeholder="Primeiro valor">
+
+        </div>
+        <h3 align="center"> _______________________________________  </h3>
+
+        <h3 align="center">Escolha o segundo valor: </h3>
+
+        <div class="caixa">
+
+                <input type="number" id="b" placeholder="Segundo valor">
+
+            </div>
+            <h3 align="center"> _______________________________________ </h3>
+        <h3 align="center">Escolha o terceiro valor: </h3>
+        
+        <div class="caixa">
+
+                <input type="number" id="c" placeholder="Terceiro valor">
+
+                <br>
+
+                <br>
+
+                <button type="button" name="" value="" class="button" align="center;" onclick="f()">Confirmar valores</button>
+
+        </div>
+    
+        <h3 align="center"> Resultado:</h3>
+        <h3 align="center"><span id="resultEquacao"> </span> <span id="resultEquacao2"></span></h3>
+
+        <h1 style= "background:rgba(120, 176, 217, 0.10)"; align= "center"> <i><u>Calculadora de divisores</u></i> </h1>
+
+        <h3 style="color:white;"; align= "center"> Escolha o primeiro número: </h3>
+
+        <div class="caixa">
+
+            <input type="number" id="d" placeholder="Primeiro número">
+
+        </div>
+        <h3 align="center"> _______________________________________ </h3>
+        <h3 style="color:white"; align="center">Escolha o segundo número: </h3>
+
+        <div class="caixa">
+
+                <input type="number" id="e" placeholder="Segundo número">
+
+                <br>
+
+                <br>
+
+                <button type="button" name="" value="" class="button" align="center;" onclick="g()">Confirmar valores</button>
+
+                <h3 align="center"> Minimo divisor comum: <span id="mdc"></span></h3>
+
+                <h3 align="center"> e </h3>
+
+                <h3 align="center"> Número de divisores: <span id="resulta"></span></h3>
+
+                <h3 align="center"> <span id="comuns"></span></h3>
+
+                <script type="text/javascript">
+
+                    var nome = prompt('Digite seu nome: ');
+
+                    alert(nome + ', seja bem vindo!');
+
+                  </script>
+
+    </body> 
+
+</html>
