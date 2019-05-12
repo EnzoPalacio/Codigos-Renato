@@ -1,6 +1,6 @@
-function ControlePontos (){
+function ScoreBoardGameControl (){
 
-	var pontos = 0;
+	var score = 0;
 
 	var POINT_GAME = 10;
 
@@ -14,11 +14,11 @@ function ControlePontos (){
 
 
 
-	this.updatePontos =  function (){
+	this.updateScore =  function (){
 
-		var pontosDiv = document.getElementById("pontos");
+		var scoreDiv = document.getElementById("score");
 
-		pontosDiv.innerHTML =  TEXT_PONTOS + pontos;
+		scoreDiv.innerHTML =  TEXT_SCORE + score;
 
 	}
 
@@ -28,11 +28,11 @@ function ControlePontos (){
 
 		corrects++;
 
-		pontos+= POINT_GAME;
+		score+= POINT_GAME;
 
 		if (corrects ==  TOTAL_CORRECT){
 
-			alert("Fim de Jogo! Seu Score foi " + pontos);
+			alert("Fim de Jogo! Seu Score foi " + score);
 
 		}
 
@@ -40,9 +40,9 @@ function ControlePontos (){
 
 
 
-	this.decrementPontos =  function (){
+	this.decrementScore =  function (){
 
-		pontos-= POINT_GAME;
+		score-= POINT_GAME;
 
 	}
 
@@ -54,7 +54,7 @@ function Card(picture){
 
 	var FOLDER_IMAGES = 'resources/'
 
-	var IMAGE_CAPA  = "capa.png"
+	var IMAGE_QUESTION  = "question.png"
 
 	this.picture = picture;
 
@@ -194,7 +194,7 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 
 	var logicGame = controllerLogicGame;
 
-	var ControlePontos = scoreBoard;
+	var scoreBoardGameControl = scoreBoard;
 
 
 
@@ -212,7 +212,7 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 
 		this.clear();
 
-		ControlePontos.updateScore();
+		scoreBoardGameControl.updateScore();
 
 		var cardCount = 0;
 
@@ -232,7 +232,7 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 
 				}else{
 
-                    cardImage.setAttribute("src",card.getCapaImage());
+					cardImage.setAttribute("src",card.getQuestionImage());
 
 				}
 
@@ -250,17 +250,17 @@ function CardGame (cards , controllerLogicGame,scoreBoard){
 
 						logicGame.addEventListener("correct",function (){
 
-							ControlePontos.incrementScore();
+							scoreBoardGameControl.incrementScore();
 
-							ControlePontos.updateScore();
+							scoreBoardGameControl.updateScore();
 
 						});
 
 						logicGame.addEventListener("wrong",function (){
 
-							ControlePontos.decrementScore();
+							scoreBoardGameControl.decrementScore();
 
-							ControlePontos.updateScore();
+							scoreBoardGameControl.updateScore();
 
 						});
 
